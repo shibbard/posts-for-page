@@ -1,0 +1,15 @@
+﻿div.pfpItem img
+{
+    float:left;
+    margin-right:10px;
+}
+div.pfpItem .clear
+{
+    clear:both;
+}
+span.pfpNav
+{
+    margin-right:10px;
+    margin-top:15px;
+}
+
