@@ -4,7 +4,7 @@ Donate link:
 Tags: post summary, posts in page, posts by tag, posts by category
 Requires at least: 3.3
 Tested up to: 3.4.2
-Stable tag: 1.7
+Stable tag: 1.71
 
 Include posts in a Page, by category, a selection of tags or by author with auto summary (read more) option. Supports pagination.
 
@@ -55,10 +55,14 @@ Example Usage:
 	<li>show_meta : set to 'true' to show post date and author name</li>
 	<li>hide_post_title : set to 'true' to hide the post title, e.g. if you just want to show one post using post_id</li>
 	<li>hide_read_more : set to 'true' to hide the read more link</li>
-	<li>create_para_tags : set to 'true' to use the WP 'wpautop' function to create &laquop&raquo tags and &laquobr&raquo tags from line breaks</li>
+	<li>create_para_tags : set to 'true' to use the WP 'wpautop' function to create <p> tags and <br> tags from line breaks</li>
+	<li>order : set to 'ASC' or 'DESC' - Designates the ascending or descending order of the 'orderby' parameter. Defaults to 'DESC'.</li>
 </ul>
 <ul>
 	<li>Each summary posts is contained in a div with  class="pfpItem", so you can override styles by setting them in the WP stylesheet "styles.css". E.g ".div.pfpItem{font-size:20px;}"</li>
+</ul>
+<ul>
+	<li>Source code for extending can be found on github https://github.com/shibbard/posts-for-page</li>
 </ul>
 == Screenshots ==
 
@@ -104,6 +108,9 @@ Example Usage:
 = 1.7 =
 * added create_para_tags 
 * fixed a bug with hide_read_more 
+
+= 1.71 =
+* added order (ASC or DESC) for the order_by parameter
 
 == Upgrade Notice ==
 First Release
