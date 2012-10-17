@@ -4,7 +4,7 @@ Donate link:
 Tags: post summary, posts in page, posts by tag, posts by category
 Requires at least: 3.3
 Tested up to: 3.4.2
-Stable tag: 1.71
+Stable tag: 1.73
 
 Include posts in a Page, by category, a selection of tags or by author with auto summary (read more) option. Supports pagination.
 
@@ -111,6 +111,9 @@ Example Usage:
 
 = 1.71 =
 * added order (ASC or DESC) for the order_by parameter
+
+= 1.73 =
+* fixed bug with num param
 
 == Upgrade Notice ==
 First Release

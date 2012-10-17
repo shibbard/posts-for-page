@@ -3,7 +3,7 @@
 Plugin Name: Posts for Page Plugin
 Plugin URI: http://www.mywebdeveloperblog.com/development/wordpress/posts-for-page-wordpress-plugin
 Description: This plugin allows for posts to be assigned to pages as snippets or full posts. Posts can be selected by category slug, category id, tag slug, single post id, author and ordered by date or title.
-Version: 1.71
+Version: 1.73
 Author: Simon Hibbard
 Author URI: http://www.mywebdeveloperblog.com/
 License: GPL2
@@ -269,13 +269,15 @@ function pfp_get_posts($pfp_opts) {
 				//$params['offset'] = $offset;
 			//}
 		}
-		if($pfp_opts['order'] != '') {
-			$params['order'] = $pfp_opts['order'];
-		}        
 		else
 		{
 			$params['posts_per_page'] =  -1; // gets them all
 		}
+        
+		if($pfp_opts['order'] != '') {
+			$params['order'] = $pfp_opts['order'];
+		}        
+
 		// apply whatever the case:
 		$params['suppress_filters'] = false;
 
