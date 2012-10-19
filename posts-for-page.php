@@ -3,7 +3,7 @@
 Plugin Name: Posts for Page Plugin
 Plugin URI: http://www.mywebdeveloperblog.com/development/wordpress/posts-for-page-wordpress-plugin
 Description: This plugin allows for posts to be assigned to pages as snippets or full posts. Posts can be selected by category slug, category id, tag slug, single post id, author and ordered by date or title.
-Version: 1.73
+Version: 1.75
 Author: Simon Hibbard
 Author URI: http://www.mywebdeveloperblog.com/
 License: GPL2
@@ -25,7 +25,7 @@ function robins_get_the_excerpt($post_id) {
   $post = get_post($post_id);
   $output = get_the_excerpt();
   $post = $save_post;
-  //return preg_replace('/<a[^>]+>Continue reading.*?<\/a>/i','',$output);
+  return preg_replace('/<a[^>]+>Continue reading.*?<\/a>/i','',$output);
   return $output;
 }
 
@@ -144,6 +144,8 @@ function sc_posts_for_page($atts, $content = null){
 							$image_attributes = wp_get_attachment_image_src( $attachment->ID, 'thumbnail' )  ? wp_get_attachment_image_src( $attachment->ID, 'thumbnail' ) : wp_get_attachment_image_src( $attachment->ID, 'full' );
 							$imageSrc = '<img src="'.wp_get_attachment_thumb_url( $attachment->ID ).'" />';
 						}
+						// if attachment found need to remove the image from the post content **TODO - this is odd behaviour but works
+						$content = remove_images($content);
 					}	
 				}
 
@@ -200,12 +202,12 @@ function sc_posts_for_page($atts, $content = null){
 			// do not get any content if it is to be hidden (i.e. show titles only)
 			if($_opts['hide_post_content'] != 'true')
 			{
-				//if($_opts['hide_images'] != 'true')
-				//{
-					//$output .= $imageSrc;
-				//}
+				if($_opts['hide_images'] != 'true')
+				{
+					$output .= $imageSrc;
+				}
 				$output .= $content;
-                if( ($_opts['hide_read_more'] != 'true') && ($_opts['use_wp_excerpt'] != 'true'))
+                if( ($_opts['hide_read_more'] != 'true'))
                 {    
 				    $output .= "<a href='$link' class='pfpReadMore'>" . $_opts['readMoreText'] . "</a>";
                 }
